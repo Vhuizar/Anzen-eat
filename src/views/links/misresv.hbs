@@ -1,24 +1,23 @@
 <div class="container">
     <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-10" style="background-image: url(/img/c6.jpg);">
+        <div class="col-md-10" style="background-image: url(/img/c5.jpg);">
             <br>
             <div class="text-right">
-                <a href="/creuser" class='btn btn-primary'>Agregar Nuevo</a>
+                <h1 style="color:white; font-size: 40px;">{{user.name}} {{user.last_name}}</h1>
             </div>
             <br>
-            <h2 style="color:white; font-size: 40px;">Tabla de Usuarios</h2>
+            <h2 style="color:white; font-size: 40px;">Tabla de Restaurantes</h2>
             <br>
-            <div class="col-md-10">
+            <div class="col-md-8">
                 <div class="card ">
                     <div class="card-body">
                         <table class="table">
                             <thead>
                                 <tr>
-                                   <th style="color: white;">Nombre</th>
-                                    <th style="color: white;">Apellidos</th>
-                                    <th style="color: white;">Email</th>
-                                    <th style="color: white;">Rol Usuario</th>
+                                   <th id="tablarest">Restaurante</th>
+                                    <th id="tablarest">Fecha</th>
+                                    <th id="tablarest">Numero de Personas</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -26,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            {{#each users}}
+            {{#each resv}}
                 <div class="col-md-12">
                     <div class="card ">
                         <div class="card-body">
@@ -34,10 +33,11 @@
                                 <tbody>
                                     <tr class="info">
                                         <td>{{name}}</td>
-                                        <td>{{last_name}}</td>
-                                        <td>{{email}}</td>
-                                        <th>{{rol}}</th>
-                                        <td><a href="/links/userdelet/{{id}}" class="btn btn-danger"> ELIMINAR</a></td>
+                                        <td>{{fecha}}</td>
+                                        <td>{{per_adicional}}</td>
+                                        <td></td>
+                                        <td><a href="/links/restedit/{{id}}" class="btn btn-primary"> EDITAR</a></td>
+                                        <td><a href="/links/restdelet/{{id}}" class="btn btn-danger"> ELIMINAR</a></td>
                                     </tr>
                                 </tbody>
                             </table>
