@@ -2,8 +2,8 @@ module.exports = {
     database: {
         host: 'localhost',
         port: 8080,
-        user: 'root',
-        password: '',
+        user: 'Anzen-eat',
+        password: '1234',
         database: 'pruebas'
     }
 };
