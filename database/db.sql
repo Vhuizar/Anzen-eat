@@ -1,19 +1,32 @@
-CREATE DATABASE db_prueba;
-USE db_prueba;}
+create database pruebas;
+use pruebas;
 
-CREATE TABLE users(
-    id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    username VARCHAR(16) NOT NULL,
-    password VARCHAR(60) NOT NULL,
-    fullname VARCHAR(100) NOT NULL
+create table users(
+id int primary key auto_increment,
+name varchar(150), 
+last_name varchar(200),
+email varchar(255),
+password varchar(255),
+rol varchar(100)
 );
 
-CREATE TABLE links(
-    id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    title VARCHAR(150) NOT NULL,
-    url VARCHAR(255) NOT NULL,
-    descripcion TEXT,
-    user_id INT(11), FOREIGN KEY (user_id) REFERENCES users(id),
-    create_at timestamp NOT NULL DEFAULT current_timestamp
+create table tipo_res(
+id int primary key auto_increment,
+name varchar(255)
+);
+create table restaurantes(
+id int primary key auto_increment,
+name varchar(200),
+address varchar(255),
+description varchar(255),
+phone_numbre varchar(20),
+fk_tipo int, foreign key (fk_tipo) references tipo_res(id)
+);
+create table reservaciones(
+id int primary key auto_increment,
+fk_user int, foreign key (fk_user) references users(id),
+fk_rest int, foreign key (fk_rest) references restaurantes(id),
+fecha varchar(100),
+per_adicional varchar(10)
 );
 

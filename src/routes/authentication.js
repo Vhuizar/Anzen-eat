@@ -4,6 +4,11 @@ const passport = require('passport');
 const {isLoggeedIn, isNologgedIn}  = require('../lib/auth');
 
 
+//cuando no tenga nada en el dominio de la url  redirecciona a login  
+router.get('/',(req,res)=>{
+    res.redirect('/login')
+});
+
 //login
 router.get('/login', isNologgedIn,(req,res)=>{
     res.render('auth/login');
